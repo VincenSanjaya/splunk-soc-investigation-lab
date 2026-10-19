@@ -1,0 +1,18 @@
+/* Detection 01 — Suspicious LSASS Process Access */
+index=soc_lab1 EventID=10 TargetImage="*lsass.exe"
+| table _time SourceImage TargetImage GrantedAccess
+
+/* Detection 02 — Encoded PowerShell Execution */
+index=soc_lab1 EventID=1 Image="*powershell.exe"
+| search CommandLine="*-enc*"
+| table _time User Image ParentImage CommandLine
+
+/* Detection 03 — Suspicious PowerShell Credential Prompt */
+index=soc_lab1 EventID=4104
+| search ScriptBlockText="*PromptForCredential*"
+| table _time ScriptBlockText
+
+/* Detection 04 — PowerShell Base64 Decoding */
+index=soc_lab1 EventID=4104
+| search ScriptBlockText="*FromBase64String*"
+| table _time ScriptBlockText

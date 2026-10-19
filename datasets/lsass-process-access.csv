@@ -1,0 +1,2 @@
+_time,EventID,SourceImage,TargetImage,GrantedAccess,CallTrace,User
+2019-03-17 19:37:11.661928+00:00,10,C:\Users\IEUser\Desktop\mimikatz_trunk\Win32\mimikatz.exe,C:\Windows\system32\lsass.exe,0x00001010,C:\Windows\SYSTEM32\ntdll.dll+4595c,C:\Windows\system32\KERNELBASE.dll+8185
